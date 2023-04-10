@@ -1,0 +1,22 @@
+.Profile-holder {
+    padding: 5%;
+  }
+  
+  .main {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 28px;
+    justify-content: center;
+  }
+  
+  .list {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    padding: 16px 0;
+  }
+  
+  .list p {
+    border-bottom: 1px solid lightgray;
+    padding: 0 24px;
+  }
+  
