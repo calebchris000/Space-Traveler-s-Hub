@@ -9,8 +9,9 @@ const App = () => (
     <BrowserRouter>
       <NavHeader />
       <Routes>
+        <Route index path="/" element={<RocketPage imgURL="https://i.imgur.com/DaCfMsj.jpg" />} />
+        <Route index path="/Rocket" element={<RocketPage imgURL="https://i.imgur.com/DaCfMsj.jpg" />} />
         <Route path="/Profile" element={<Profile />} />
-        <Route path="/Rocket" element={<RocketPage imgURL="https://i.imgur.com/DaCfMsj.jpg" />} />
       </Routes>
     </BrowserRouter>
   </>

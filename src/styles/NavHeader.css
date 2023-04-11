@@ -1,0 +1,32 @@
+.navbar {
+  border: 2px solid red;
+  display: flex;
+  padding: 0 30px;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.PlantImg {
+  height: 60px;
+}
+
+.nav-main {
+  display: flex;
+  list-style-type: none;
+  margin-left: auto;
+}
+
+.nav-main > * {
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.nav-items > a {
+  text-decoration: none;
+}
+
+.nav-items > a:active {
+  text-decoration: underline;
+}
