@@ -4,7 +4,7 @@
   padding: 0 30px;
   align-items: center;
   position: sticky;
-  top:0;
+  top: 0;
   background-color: white;
 }
 
@@ -24,9 +24,9 @@
 }
 
 .nav-items > a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .nav-items > a:active {
-    text-decoration: underline;
+  text-decoration: underline;
 }
