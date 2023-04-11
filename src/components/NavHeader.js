@@ -1,5 +1,6 @@
+import '../styles/NavHeader.css';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 // import planetImg from '../public/planet2.png';
 
 const NavHeader = () => {
@@ -29,7 +30,7 @@ const NavHeader = () => {
       <ul className="nav-main">
         {urls.map((url) => (
           <li className="nav-items" key={url.id}>
-            <NavLink to={url.url}>{ url.text }</NavLink>
+            <a href={url.url}>{ url.text }</a>
           </li>
         ))}
       </ul>
