@@ -1,0 +1,27 @@
+.rocket-component {
+  display: flex;
+  padding: 10px 0;
+  margin: 24px;
+  box-sizing: border-box;
+}
+
+.rocket-component > img {
+  height: 160px;
+}
+
+.rocket-component > span {
+  margin: 0 30px;
+}
+
+span > p {
+  word-wrap: break-word;
+}
+
+.reserve {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}

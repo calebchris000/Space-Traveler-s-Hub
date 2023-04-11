@@ -1,4 +1,6 @@
+import '../styles/Rocket.css';
 import PropTypes from 'prop-types';
+import data from './rocketData';
 
 const Rocket = ({
   imgURL,
@@ -11,18 +13,21 @@ const Rocket = ({
     <span>
       <h3>{title}</h3>
       <p>{description}</p>
-      <button type="button">{buttonText}</button>
+      <button className="reserve" type="button">{buttonText}</button>
     </span>
   </div>
 );
 
 const RocketPage = () => (
-  <Rocket
-    imgURL="https://i.imgur.com/DaCfMsj.jpg"
-    title="Falcon 1"
-    description="The fastest ship"
-    buttonText="Reserve Rocket"
-  />
+  data.map((rocket) => (
+    <Rocket
+      key={rocket.id}
+      imgURL={rocket.flickr_images}
+      title={rocket.name}
+      description={rocket.description}
+      buttonText="Reserve Rocket"
+    />
+  ))
 );
 
 Rocket.propTypes = {
