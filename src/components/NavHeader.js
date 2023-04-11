@@ -7,12 +7,12 @@ const NavHeader = () => {
   const urls = [
     {
       id: 1,
-      url: '/Rocket',
+      url: '/rocket',
       text: 'Rocket',
     },
     {
       id: 2,
-      url: '/missions',
+      url: '/mission',
       text: 'Missions',
     },
     {
