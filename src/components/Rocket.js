@@ -33,7 +33,7 @@ const Rocket = ({
         );
       }
     });
-  });
+  }, []);
 
   function setButton(e) {
     if (buttonText === 'Reserve Rocket') {
