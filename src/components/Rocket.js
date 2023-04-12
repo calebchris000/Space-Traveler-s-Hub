@@ -1,6 +1,6 @@
 import '../styles/Rocket.css';
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import {
   useDispatch,
   useSelector,
@@ -17,16 +17,37 @@ const Rocket = ({
   const [buttonText, setButtonText] = useState(
     'Reserve Rocket',
   );
+  const { reserveState } = useSelector(
+    (store) => store.rocket,
+  );
+  const buttonRef = useRef(null);
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    reserveState.forEach((item) => {
+      if (item.id === id) {
+        setButtonText('Cancel Reservation');
+        buttonRef.current.classList.add(
+          'buttonCancel',
+        );
+      }
+    });
+  }, []);
+
   function setButton(e) {
     if (buttonText === 'Reserve Rocket') {
       setButtonText('Cancel Reservation');
-      dispatch(buttonReducer({ id, buttonText }));
+      dispatch(
+        buttonReducer({ id, buttonText, title }),
+      );
       e.target.classList.add('buttonCancel');
     } else {
       setButtonText('Reserve Rocket');
+      dispatch(
+        buttonReducer({ id, buttonText, title }),
+      );
       e.target.classList.remove('buttonCancel');
-      dispatch(buttonReducer({ id, buttonText }));
     }
   }
 
@@ -37,6 +58,7 @@ const Rocket = ({
         <h3>{title}</h3>
         <p>{description}</p>
         <button
+          ref={buttonRef}
           onClick={(e) => setButton(e)}
           className="reserve"
           type="button"

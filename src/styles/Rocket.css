@@ -6,8 +6,10 @@
 }
 
 .rocket-component > img {
-  height: 160px;
-  width: 200px;
+  height: 30vmin;
+  width: 40vmin;
+  object-fit: cover;
+  object-position: center;
 }
 
 .rocket-component > span {

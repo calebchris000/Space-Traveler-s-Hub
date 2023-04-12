@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   content: [],
   info: null,
-  reserveState: {},
+  reserveState: [],
 };
 
 const RocketSlice = createSlice({
@@ -20,24 +20,33 @@ const RocketSlice = createSlice({
     rocketData: (state, {payload}) => {
       return {
         ...state,
-        content: payload
-      }
+        content: payload,
+      };
     },
 
     buttonReducer: (state, {payload}) => {
       const {reserveState} = state;
-      const {id, buttonText} = payload;
+      const {id, buttonText, title} = payload;
+      if (buttonText === "Cancel Reservation") {
+        return {
+          ...state,
+          reserveState: reserveState.filter(item => item.id !== id),
+        };
+      }
       return {
         ...state,
-        reserveState: {
+        reserveState: [
           ...reserveState,
-          [id]: buttonText,
-        },
+          {id, title, buttonText},
+        ],
       };
     },
   },
 });
 
-export const {buttonReducer, apiState, rocketData} =
-  RocketSlice.actions;
+export const {
+  buttonReducer,
+  apiState,
+  rocketData,
+} = RocketSlice.actions;
 export default RocketSlice.reducer;
