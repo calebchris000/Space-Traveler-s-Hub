@@ -6,6 +6,9 @@ const Profile = () => {
   const { reserveState } = useSelector(
     (store) => store.rocket,
   );
+  const { missionReserve } = useSelector(
+    (store) => store.mission,
+  );
 
   return (
     <div className="Profile-holder">
@@ -14,11 +17,9 @@ const Profile = () => {
         <div className="Missions">
           <h4>My Missions</h4>
           <div className="list">
-            <p>Astro-1</p>
-            <p>Dawn</p>
-            <p>Epoxi</p>
-            <p>Fast</p>
-            <p>Hubble</p>
+            {missionReserve.map((mission) => (
+              <p key={mission.id}>{mission.mission}</p>
+            ))}
           </div>
         </div>
         <div className="Rockets">

@@ -1,9 +1,9 @@
-import '../styles/Mission.css';
+import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect, useRef } from 'react';
 import { missionButtonReducer } from '../redux/missions/MissionSlice';
 import getMission from '../redux/missions/MissionAPI';
+import '../styles/Mission.css';
 
 const Mission = ({
   id,
@@ -11,11 +11,25 @@ const Mission = ({
   description,
 }) => {
   const member = useRef(null);
+  const buttonRef = useRef(null);
   const dispatch = useDispatch();
   const [missionText, setMissionText] = useState(
     'Join Mission',
   );
   const [status, setStatus] = useState('NOT A MEMBER');
+  const { missionReserve } = useSelector(
+    (store) => store.mission,
+  );
+  useEffect(() => {
+    missionReserve.forEach((item) => {
+      if (item.id === id) {
+        setMissionText('Leave Mission');
+        setStatus('ACTIVE MEMBER');
+        member.current.classList.add('activeMember');
+        buttonRef.current.classList.add('leaveMission');
+      }
+    });
+  }, [id, missionReserve]);
 
   function setMissionButton(e) {
     if (missionText === 'Join Mission') {
@@ -23,7 +37,7 @@ const Mission = ({
       setStatus('ACTIVE MEMBER');
       member.current.classList.add('activeMember');
       dispatch(
-        missionButtonReducer({ id, missionText, status }),
+        missionButtonReducer({ id, missionText, mission }),
       );
       e.target.classList.add('leaveMission');
     } else {
@@ -32,7 +46,7 @@ const Mission = ({
       member.current.classList.remove('activeMember');
       e.target.classList.remove('leaveMission');
       dispatch(
-        missionButtonReducer({ id, missionText, status }),
+        missionButtonReducer({ id, missionText, mission }),
       );
     }
   }
@@ -44,6 +58,7 @@ const Mission = ({
         <p>{description}</p>
         <p ref={member} className="member">{status}</p>
         <button
+          ref={buttonRef}
           className="missionButton"
           onClick={(e) => setMissionButton(e)}
           type="button"
@@ -53,6 +68,12 @@ const Mission = ({
       </div>
     </section>
   );
+};
+
+Mission.propTypes = {
+  id: PropTypes.string.isRequired,
+  mission: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 const MissionPage = () => {
@@ -67,7 +88,7 @@ const MissionPage = () => {
         <h3>Mission</h3>
         <h3>Description</h3>
         <h3>Status</h3>
-        <h3>.</h3>
+        <h3>Status</h3>
       </div>
 
       {content.map((data) => (
@@ -81,12 +102,6 @@ const MissionPage = () => {
       ))}
     </>
   );
-};
-
-Mission.propTypes = {
-  id: PropTypes.string.isRequired,
-  mission: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
 };
 
 export default MissionPage;

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   content: [],
   info: null,
-  reserveState: {},
+  missionReserve: [],
   memberState: {},
 };
 
@@ -21,14 +21,20 @@ const MissionSlice = createSlice({
     }),
 
     missionButtonReducer: (state, { payload }) => {
-      const { reserveState } = state;
-      const { id, missionText } = payload;
+      const { missionReserve } = state;
+      const { id, missionText, mission } = payload;
+      if (missionText === 'Leave Mission') {
+        return {
+          ...state,
+          missionReserve: missionReserve.filter((item) => item.id !== id),
+        };
+      }
       return {
         ...state,
-        reserveState: {
-          ...reserveState,
-          [id]: missionText,
-        },
+        missionReserve: [
+          ...missionReserve,
+          { id, missionText, mission },
+        ],
       };
     },
   },
