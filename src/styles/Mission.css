@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+.missionWrapper {
+  margin: 0 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+.titleRow,
+.data-row {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+}
+
+.titleRow {
+  margin: 0 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+.titleRow > * {
+  padding: 8px;
+  font-weight: 500;
+  border: 2px solid #dee2e6;
+}
+
+.data-row {
+  border: 2px solid #dee2e6;
+}
+
+.data-row > * {
+  font-weight: 500;
+  padding: 8px;
+  margin: 0;
+  align-self: center;
+  border-right: 2px solid #dee2e6;
+}
+
+.data-row > p {
+  font-size: 0.875rem;
+}
+
+
+.member {
+  background-color: #6d757d;
+  margin: 0 auto;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.4rem;
+  color: #fff;
+}
+
+.missionButton {
+  padding: 0.3rem 0.5rem;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid #343a40;
+  color: #343a40;
+  font-family: "Poppins", sans-serif;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.activeMember {
+  background-color: #18A2B8;
+}
+
+.leaveMission {
+  border-color: red;
+  color: red;
+}
