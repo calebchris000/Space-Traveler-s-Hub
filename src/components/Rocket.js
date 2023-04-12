@@ -1,25 +1,15 @@
 import '../styles/Rocket.css';
 import PropTypes from 'prop-types';
 import { useEffect, useState, useRef } from 'react';
-import {
-  useDispatch,
-  useSelector,
-} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { buttonReducer } from '../redux/rockets/RocketSlice';
 import getRockets from '../redux/rockets/RocketAPI';
 
 const Rocket = ({
-  id,
-  imgURL,
-  title,
-  description,
+  id, imgURL, title, description,
 }) => {
-  const [buttonText, setButtonText] = useState(
-    'Reserve Rocket',
-  );
-  const { reserveState } = useSelector(
-    (store) => store.rocket,
-  );
+  const [buttonText, setButtonText] = useState('Reserve Rocket');
+  const { reserveState } = useSelector((store) => store.rocket);
   const buttonRef = useRef(null);
 
   const dispatch = useDispatch();
@@ -28,25 +18,19 @@ const Rocket = ({
     reserveState.forEach((item) => {
       if (item.id === id) {
         setButtonText('Cancel Reservation');
-        buttonRef.current.classList.add(
-          'buttonCancel',
-        );
+        buttonRef.current.classList.add('buttonCancel');
       }
     });
-  }, []);
+  }, [id, reserveState]); // Added 'id' and 'reserveState' to dependency array
 
   function setButton(e) {
     if (buttonText === 'Reserve Rocket') {
       setButtonText('Cancel Reservation');
-      dispatch(
-        buttonReducer({ id, buttonText, title }),
-      );
+      dispatch(buttonReducer({ id, buttonText, title }));
       e.target.classList.add('buttonCancel');
     } else {
       setButtonText('Reserve Rocket');
-      dispatch(
-        buttonReducer({ id, buttonText, title }),
-      );
+      dispatch(buttonReducer({ id, buttonText, title }));
       e.target.classList.remove('buttonCancel');
     }
   }
@@ -72,9 +56,7 @@ const Rocket = ({
 
 const RocketPage = () => {
   const dispatch = useDispatch();
-  const { content, info } = useSelector(
-    (store) => store.rocket,
-  );
+  const { content, info } = useSelector((store) => store.rocket);
   useEffect(() => {
     dispatch(getRockets());
   }, [dispatch]);
