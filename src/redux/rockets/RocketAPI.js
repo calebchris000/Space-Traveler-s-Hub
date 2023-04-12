@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiState, rocketData } from './rockets/RocketSlice';
+import { apiState, rocketData } from './RocketSlice';
 
 const rocketApi = 'https://api.spacexdata.com/v4/rockets';
 

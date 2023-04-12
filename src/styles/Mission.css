@@ -46,7 +46,7 @@
   color: #fff;
 }
 
-.data-row > button {
+.missionButton {
   padding: 0.3rem 0.5rem;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0);
@@ -56,4 +56,13 @@
   border-radius: 0.3rem;
   font-weight: 500;
   cursor: pointer;
+}
+
+.activeMember {
+  background-color: #18a2b8;
+}
+
+.leaveMission {
+  border-color: red;
+  color: red;
 }

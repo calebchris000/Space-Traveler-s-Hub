@@ -6,7 +6,7 @@ import {
   useSelector,
 } from 'react-redux';
 import { buttonReducer } from '../redux/rockets/RocketSlice';
-import getRockets from '../redux/RocketAPI';
+import getRockets from '../redux/rockets/RocketAPI';
 
 const Rocket = ({
   id,
@@ -55,14 +55,14 @@ const RocketPage = () => {
   );
   useEffect(() => {
     dispatch(getRockets());
-  }, []);
+  }, [dispatch]);
 
   if (info === 'success') {
     return content.map((rocket) => (
       <Rocket
         key={rocket.id}
         id={rocket.id}
-        imgURL={rocket.flickr_images}
+        imgURL={rocket.flickr_images[1]}
         title={rocket.name}
         description={rocket.description}
       />
