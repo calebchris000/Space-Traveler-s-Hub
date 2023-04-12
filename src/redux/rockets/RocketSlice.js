@@ -30,7 +30,7 @@ const RocketSlice = createSlice({
       if (buttonText === "Cancel Reservation") {
         return {
           ...state,
-          reserveState: reserveState.filter(item => item.id === id && item[buttonText] !== 'Cancel Reservation'),
+          reserveState: reserveState.filter(item => item.id !== id),
         };
       }
       return {
