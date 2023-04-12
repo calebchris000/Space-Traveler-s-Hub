@@ -38,7 +38,6 @@
   font-size: 0.875rem;
 }
 
-
 .member {
   background-color: #6d757d;
   margin: 0 auto;
@@ -60,7 +59,7 @@
 }
 
 .activeMember {
-  background-color: #18A2B8;
+  background-color: #18a2b8;
 }
 
 .leaveMission {
