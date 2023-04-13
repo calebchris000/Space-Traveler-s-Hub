@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing react component should match snapshot 1`] = `
+<Rocket
+  description="Rocket destined to the moon"
+  id="1n2nwek4"
+  imgURL="http://imgURL.com/Rocket-1.png"
+  title="Rocket 1"
+/>
+`;
