@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-/* eslint-disable */
+
 const initialState = {
   content: [],
   info: null,
@@ -7,37 +7,33 @@ const initialState = {
 };
 
 const RocketSlice = createSlice({
-  name: "RocketStore",
+  name: 'RocketStore',
   initialState,
   reducers: {
-    apiState: (state, {payload}) => {
-      return {
-        ...state,
-        info: payload,
-      };
-    },
+    apiState: (state, { payload }) => ({
+      ...state,
+      info: payload,
+    }),
 
-    rocketData: (state, {payload}) => {
-      return {
-        ...state,
-        content: payload,
-      };
-    },
+    rocketData: (state, { payload }) => ({
+      ...state,
+      content: payload,
+    }),
 
-    buttonReducer: (state, {payload}) => {
-      const {reserveState} = state;
-      const {id, buttonText, title} = payload;
-      if (buttonText === "Cancel Reservation") {
+    buttonReducer: (state, { payload }) => {
+      const { reserveState } = state;
+      const { id, buttonText, title } = payload;
+      if (buttonText === 'Cancel Reservation') {
         return {
           ...state,
-          reserveState: reserveState.filter(item => item.id !== id),
+          reserveState: reserveState.filter((item) => item.id !== id),
         };
       }
       return {
         ...state,
         reserveState: [
           ...reserveState,
-          {id, title, buttonText},
+          { id, title, buttonText },
         ],
       };
     },
