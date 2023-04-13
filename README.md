@@ -32,9 +32,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Bookstore Project <a name="todo-list"></a>
+# 📖 Space Traveler's Hub Project <a name="todo-list"></a>
 
-**Math Magicians** is a project that implements a built-in calculator and a programming quotes.
+**Space Traveler's Hub** is a project that implements a built-in calculator and a programming quotes.
 
 ## 🛠 Built With <a name="built-with"></a>
 
