@@ -4,7 +4,4 @@
     ],
     "plugins": ["@babel/plugin-syntax-jsx"]
     
-    transform: {
-        '^.+\\.jsx?$': 'babel-jest',
-      },
   }
