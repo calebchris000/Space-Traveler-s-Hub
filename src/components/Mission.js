@@ -80,7 +80,7 @@ const MissionPage = () => {
   const dispatch = useDispatch();
   const { content } = useSelector((store) => store.mission);
   useEffect(() => {
-    if (content.length < 0) {
+    if (content.length < 1) {
       dispatch(getMission());
     }
   }, [dispatch, content]);

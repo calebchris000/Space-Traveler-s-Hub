@@ -31,8 +31,8 @@ const NavHeader = () => {
           <li className="nav-items" key={url.id}>
             <NavLink
               to={url.url}
-              activeClassName="active"
-              exact
+              activeclassname="active"
+              exact="true"
             >
               {url.text}
             </NavLink>

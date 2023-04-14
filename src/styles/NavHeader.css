@@ -32,4 +32,5 @@
 
 .nav-items .active {
   text-decoration: underline; /* Add underline style for active link */
+  text-decoration-color: red;
 }

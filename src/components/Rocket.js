@@ -58,7 +58,7 @@ const RocketPage = () => {
   const dispatch = useDispatch();
   const { content, info } = useSelector((store) => store.rocket);
   useEffect(() => {
-    if (content < 0) {
+    if (content < 1) {
       dispatch(getRockets());
     }
   }, [dispatch, content]);
