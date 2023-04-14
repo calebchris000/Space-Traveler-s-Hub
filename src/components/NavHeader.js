@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom';
 import '../styles/NavHeader.css';
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
-// import planetImg from '../public/planet2.png';
+import { NavLink } from 'react-router-dom';
 
 const NavHeader = () => {
   const urls = [
@@ -31,7 +29,7 @@ const NavHeader = () => {
       <ul className="nav-main">
         {urls.map((url) => (
           <li className="nav-items" key={url.id}>
-            <Link to={url.url}>{ url.text }</Link>
+            <NavLink to={url.url}>{ url.text }</NavLink>
           </li>
         ))}
       </ul>
