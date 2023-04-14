@@ -9,9 +9,10 @@ const Rocket = ({
   id, imgURL, title, description,
 }) => {
   const [buttonText, setButtonText] = useState('Reserve Rocket');
+  const [badge, setBadge] = useState(null);
   const { reserveState } = useSelector((store) => store.rocket);
   const buttonRef = useRef(null);
-
+  const theBadge = useRef(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,10 +27,14 @@ const Rocket = ({
   function setButton(e) {
     if (buttonText === 'Reserve Rocket') {
       setButtonText('Cancel Reservation');
+      setBadge('Reserved');
+      theBadge.current.style.display = 'inline';
       dispatch(buttonReducer({ id, buttonText, title }));
       e.target.classList.add('buttonCancel');
     } else {
       setButtonText('Reserve Rocket');
+      setBadge(null);
+      theBadge.current.style.display = 'none';
       dispatch(buttonReducer({ id, buttonText, title }));
       e.target.classList.remove('buttonCancel');
     }
@@ -39,7 +44,14 @@ const Rocket = ({
     <div className="rocket-component">
       <img src={imgURL} alt="rocket" />
       <span>
-        <h3>{title}</h3>
+        <h3>
+          {' '}
+          <span ref={theBadge} className="reserveState">
+            {badge}
+          </span>
+          {' '}
+          {title}
+        </h3>
         <p>{description}</p>
         <button
           ref={buttonRef}
