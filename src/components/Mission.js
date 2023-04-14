@@ -80,8 +80,10 @@ const MissionPage = () => {
   const dispatch = useDispatch();
   const { content } = useSelector((store) => store.mission);
   useEffect(() => {
-    dispatch(getMission());
-  }, []);
+    if (content.length < 0) {
+      dispatch(getMission());
+    }
+  }, [dispatch, content]);
   return (
     <>
       <div className="titleRow">

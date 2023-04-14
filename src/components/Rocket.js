@@ -58,8 +58,10 @@ const RocketPage = () => {
   const dispatch = useDispatch();
   const { content, info } = useSelector((store) => store.rocket);
   useEffect(() => {
-    dispatch(getRockets());
-  }, []);
+    if (content < 0) {
+      dispatch(getRockets());
+    }
+  }, [dispatch, content]);
 
   if (info === 'success') {
     return content.map((rocket) => (
