@@ -29,7 +29,13 @@ const NavHeader = () => {
       <ul className="nav-main">
         {urls.map((url) => (
           <li className="nav-items" key={url.id}>
-            <NavLink to={url.url}>{ url.text }</NavLink>
+            <NavLink
+              to={url.url}
+              activeClassName="active"
+              exact
+            >
+              {url.text}
+            </NavLink>
           </li>
         ))}
       </ul>

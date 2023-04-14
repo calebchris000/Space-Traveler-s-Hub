@@ -17,15 +17,19 @@
   margin-left: auto;
 }
 
-.nav-main > * {
-  margin: 0 10px;
-  text-decoration: none;
+.nav-items {
+  margin-right: 10px;
 }
 
-.nav-items > a {
+.nav-items a {
   text-decoration: none;
+  color: #000;
 }
 
-.nav-items > a:active {
+.nav-items a:hover {
   text-decoration: underline;
+}
+
+.nav-items .active {
+  text-decoration: underline; /* Add underline style for active link */
 }
