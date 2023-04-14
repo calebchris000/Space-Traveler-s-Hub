@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  padding: 0 30px;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.PlantImg {
+  height: 60px;
+}
+
+.nav-main {
+  display: flex;
+  list-style-type: none;
+  margin-left: auto;
+}
+
+.nav-items {
+  margin-right: 10px;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-items a:hover {
+  text-decoration: underline;
+}
+
+.nav-items .active {
+  text-decoration: underline; /* Add underline style for active link */
+  text-decoration-color: red;
+}

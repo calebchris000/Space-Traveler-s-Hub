@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.rocket-component {
+  display: flex;
+  padding: 10px 0;
+  margin: 24px;
+  box-sizing: border-box;
+}
+
+.rocket-component > img {
+  height: 30vmin;
+  width: 40vmin;
+  object-fit: cover;
+  object-position: center;
+}
+
+.rocket-component > span {
+  margin: 0 30px;
+}
+
+span > p {
+  word-wrap: break-word;
+}
+
+.reserveState {
+  font-size: 0.875rem;
+  background-color: #18a2b8;
+  color: white;
+  border-radius: 6px;
+  padding: 2px 8px;
+  display: none;
+}
+
+.reserve {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.buttonCancel {
+  background-color: grey;
+  border-color: grey;
+  transition: all 0.5s ease;
+}

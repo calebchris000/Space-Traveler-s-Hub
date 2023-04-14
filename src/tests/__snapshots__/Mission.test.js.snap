@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mission should match snapshot 1`] = `
+<Mission
+  description="the moon"
+  id="1"
+  mission="Moon"
+/>
+`;
