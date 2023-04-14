@@ -18,6 +18,8 @@ const Rocket = ({
   useEffect(() => {
     reserveState.forEach((item) => {
       if (item.id === id) {
+        setBadge('Reserved');
+        theBadge.current.style.display = 'inline';
         setButtonText('Cancel Reservation');
         buttonRef.current.classList.add('buttonCancel');
       }
