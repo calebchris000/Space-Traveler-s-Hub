@@ -69,7 +69,7 @@ export const Rocket = ({
   );
 };
 
-const RocketPage = () => {
+const MockRocketPage = () => {
   const dispatch = useDispatch();
   const { content, info } = useSelector(
     (store) => store.rocket,
@@ -103,4 +103,4 @@ Rocket.propTypes = {
   description: PropTypes.string.isRequired,
 };
 
-export default RocketPage;
+export default MockRocketPage;
